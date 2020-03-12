@@ -4,7 +4,7 @@
 You can import the rss block in your volto theme in this way:
 
 
-    import { rssBlock as customRssBlock } from 'volto-rss-block';
+    import { rssBlock } from 'volto-rss-block';
 
 
 Then add it in customBlock variable
@@ -27,6 +27,9 @@ finally export it in blocks variable:
 You can also add custom templates like this:
 
 
+    import { rssBlock as customRssBlock } from 'volto-rss-block';
+
+
     const rssBlock = {
       ...customRssBlock,
       templates: {
@@ -41,7 +44,3 @@ You can also add custom templates like this:
         },
       }
     }
-
-
-
-
