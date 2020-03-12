@@ -2,6 +2,7 @@
   "name": "volto-rss-block",
   "version": "1.0",
   "private": true,
+  "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
