@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { blocks as customBlocks } from '@design/config';
 import TemplateWidget from './TemplateWidget';
 
-const RssStyle = ({ data, block, onChangeBlock, required = false }) => {
+const RssStyle = ({ data, block, onChangeBlock, setTemplate, required = false }) => {
   const templatesConfig = customBlocks.blocksConfig.rssBlock.templates;
   console.log(Object.keys(templatesConfig).length);
   if (templatesConfig && Object.keys(templatesConfig).length > 1) {
@@ -14,6 +14,7 @@ const RssStyle = ({ data, block, onChangeBlock, required = false }) => {
             data={data}
             block={block}
             onChangeBlock={onChangeBlock}
+            setTemplate={setTemplate}
             required={required}
           />
         </div>
@@ -28,6 +29,7 @@ RssStyle.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   block: PropTypes.string.isRequired,
   onChangeBlock: PropTypes.func.isRequired,
+  setTemplate: PropTypes.func.isRequired,
 };
 
 export default RssStyle;

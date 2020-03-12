@@ -28,6 +28,8 @@ const messages = defineMessages({
 });
 
 const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
+  console.log(data);
+  const [template, setTemplate] = useState(data.template || 'default');
   const [feed, setFeed] = useState(data.feed || '');
   const [feedItemNumber, setFeedItemNumber] = useState(
     data.feedItemNumber || 10,
@@ -56,7 +58,11 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
             setFeedItemNumber(value);
           }}
         />
-        <RssSyle data={data} block={block} onChangeBlock={onChangeBlock} />
+        <RssSyle
+          data={data}
+          block={block}
+          onChangeBlock={onChangeBlock}
+          setTemplate={setTemplate} />
       </Segment>
       <Segment className="actions" clearing>
         <Button
@@ -70,6 +76,7 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
           onClick={(name, value) => {
             onChangeBlock(block, {
               ...data,
+              template: template,
               feed: feed,
               feedItemNumber: feedItemNumber,
             });

@@ -3,43 +3,34 @@ import PropTypes from 'prop-types';
 import { injectIntl } from 'react-intl';
 import moment from 'moment';
 
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  CardText,
-  CardCategory,
-  CardReadMore,
-} from 'design-react-kit/dist/design-react-kit';
-
-const DefaultRSSTemplate = ({ item }) => {
-  return (
-    <div className="col-12 col-lg-3">
-      <div>MA SENZA L'IMMAGINE</div>
-      <Card noWrapper={false} tag="div">
-        <CardBody tag="div">
-          <CardCategory date={moment(item.pubDate).format('DD-MMM-Y')}>
-            {item.categories.length > 0 ? item.categories[0]._ : ''}
-          </CardCategory>
-          <CardTitle className="big-heading" tag="h5">
-            {item.title}
-          </CardTitle>
-          <CardText tag="p" className="text-serif">
-            {item.contentSnippet}
-          </CardText>
-        </CardBody>
-        <CardReadMore
-          iconName="it-arrow-right"
-          tag="a"
-          href={item?.link}
-          text="Leggi di più"
-        />
-      </Card>
-    </div>
-  );
+const CardWithoutImageRssTemplate = ({ item }) => {
+    return (
+        <div className="col-12 col-lg-3">
+            <div className="card-wrapper">
+                <div className="card">
+                    <div className="card-body">
+                        <div class="category-top">
+                            {item.categories.length > 0 ? (
+                                <a class="category">
+                                    {item.categories[0]._}
+                                </a>
+                            ) : ''
+                            }
+                            <span class="data">{moment(item.pubDate).format('DD-MMM-Y')}</span>
+                        </div>
+                        <h5 class="big-heading card-title">{item.title}</h5>
+                        <p class="text-serif card-text">{item.contentSnippet}</p>
+                    </div>
+                    <a class="read-more" href={item?.link}>
+                        <span class="text">Leggi di più</span>
+                    </a>
+                </div>
+            </div>
+        </div >
+    );
 };
-DefaultRSSTemplate.propTypes = {
-  item: PropTypes.object,
+CardWithoutImageRssTemplate.propTypes = {
+    item: PropTypes.object,
 };
 
-export default injectIntl(DefaultRSSTemplate);
+export default injectIntl(CardWithoutImageRssTemplate);

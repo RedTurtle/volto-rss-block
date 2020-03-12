@@ -2,7 +2,6 @@ import rssSVG from '@plone/volto/icons/rss.svg';
 import RssView from './Block/View';
 import RssEdit from './Block/Edit';
 import DefaultRSSTemplate from './Templates/DefaultRssTemplate';
-import ImageRssTemplate from './Templates/ImageRssTemplate';
 
 export const rssBlock = {
   id: 'rssBlock',
@@ -18,7 +17,6 @@ export const rssBlock = {
     view: [],
   },
   templates: {
-    default: { label: 'Default', template: DefaultRSSTemplate },
-    with_image: { label: 'Template with image', template: ImageRssTemplate },
+    default: { label: 'Default template', template: DefaultRSSTemplate },
   },
-};
+}

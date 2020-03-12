@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Form } from 'semantic-ui-react';
 import { defineMessages, injectIntl } from 'react-intl';
@@ -64,8 +64,8 @@ export const customSelectStyles = {
     color: state.isSelected
       ? '#007bc1'
       : state.isFocused
-      ? '#4a4a4a'
-      : 'inherit',
+        ? '#4a4a4a'
+        : 'inherit',
     ':active': {
       backgroundColor: null,
     },
@@ -78,8 +78,8 @@ export const DropdownIndicator = props => {
       {props.selectProps.menuIsOpen ? (
         <Icon name={upSVG} size="24px" color="#007bc1" />
       ) : (
-        <Icon name={downSVG} size="24px" color="#007bc1" />
-      )}
+          <Icon name={downSVG} size="24px" color="#007bc1" />
+        )}
     </components.DropdownIndicator>
   );
 };
@@ -100,12 +100,12 @@ const TemplateWidget = ({
   data,
   block,
   onChangeBlock,
+  setTemplate,
   required = false,
   intl,
 }) => {
   const templatesConfig = blocks?.blocksConfig?.rssBlock?.templates;
-  let value = data.template || 'default';
-
+  const [value, setValue] = useState(data.template || 'default');
   if (templatesConfig && Object.keys(templatesConfig).length > 1) {
     return (
       <Form.Field inline required={true} id="field-template">
@@ -138,10 +138,8 @@ const TemplateWidget = ({
                   label: templatesConfig[value].label,
                 }}
                 onChange={field => {
-                  onChangeBlock(block, {
-                    ...data,
-                    template: field.value,
-                  });
+                  setValue(field.value);
+                  setTemplate(field.value);
                 }}
               />
             </Grid.Column>
