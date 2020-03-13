@@ -5,9 +5,12 @@
   "semi": false,
   "overrides": [
     {
-      "files": ["*.css", "*.scss"],
+      "files": [
+        "*.css",
+        "*.scss"
+      ],
       "options": {
-        "tabWidth": 4
+        "tabWidth": 2
       }
     },
     {

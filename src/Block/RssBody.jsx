@@ -11,7 +11,7 @@ const RssBody = ({ data, properties, intl, path, isEditMode }) => {
     let parser = new Parser();
     if (data?.feed?.length > 0) {
       let base_url = settings.apiPath;
-      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function(
+      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function (
         err,
         feed,
       ) {
@@ -33,14 +33,12 @@ const RssBody = ({ data, properties, intl, path, isEditMode }) => {
   return feedItems.length > 0 ? (
     <div className="row">
       {feedItems?.map((item, i) => (
-        <>
-          <ListingBodyTemplate key={i} item={item} />
-        </>
+        <ListingBodyTemplate key={i} item={item} />
       ))}
     </div>
   ) : (
-    <div className="no-rss-feed-results" />
-  );
+      <div className="no-rss-feed-results" />
+    );
 };
 
 RssBody.propTypes = {

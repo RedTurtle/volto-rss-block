@@ -9,20 +9,20 @@ const CardWithoutImageRssTemplate = ({ item }) => {
             <div className="card-wrapper">
                 <div className="card">
                     <div className="card-body">
-                        <div class="category-top">
+                        <div className="category-top">
                             {item.categories.length > 0 ? (
-                                <a class="category">
+                                <a className="category">
                                     {item.categories[0]._}
                                 </a>
                             ) : ''
                             }
-                            <span class="data">{moment(item.pubDate).format('DD-MMM-Y')}</span>
+                            <span className="data">{moment(item.pubDate).format('DD-MMM-Y')}</span>
                         </div>
-                        <h5 class="big-heading card-title">{item.title}</h5>
-                        <p class="text-serif card-text">{item.contentSnippet}</p>
+                        <h5 className="big-heading card-title">{item.title}</h5>
+                        <p className="text-serif card-text">{item.contentSnippet}</p>
                     </div>
-                    <a class="read-more" href={item?.link}>
-                        <span class="text">Leggi di più</span>
+                    <a className="read-more" href={item?.link}>
+                        <span className="text">Leggi di più</span>
                     </a>
                 </div>
             </div>
