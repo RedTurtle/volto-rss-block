@@ -1,12 +1,12 @@
 {
   "name": "volto-rss-block",
-  "version": "1.0",
-  "description": "React component that handles csv file input.",
+  "version": "0.1.0",
+  "description": "Volto addon for RSS",
   "main": "src/index.js",
-  "repository": "https://github.com/nzambello/react-csv-reader",
-  "bugs": "https://github.com/nzambello/react-csv-reader/issues",
-  "author": "Nicola Zambello (github.com/nzambello)",
-  "homepage": "https://github.com/nzambello/react-csv-reader#readme",
+  "repository": "https://github.com/RedTurtle/volto-rss-block",
+  "bugs": "https://github.com/RedTurtle/volto-rss-block/issues",
+  "author": "RedTurtle Technology",
+  "homepage": "https://github.com/RedTurtle/volto-rss-block#readme",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.6.4",
