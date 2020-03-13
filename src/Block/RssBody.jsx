@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl } from 'react-intl';
 import Parser from 'rss-parser';
 import { settings } from '@plone/volto/config';
 import { blocks as customBlocks } from '@design/config';
 
-const RssBody = ({ data, properties, intl, path, isEditMode }) => {
+const RssBody = ({ data }) => {
   const [feedItems, setFeedItems] = useState([]);
   useEffect(() => {
     let parser = new Parser();
     if (data?.feed?.length > 0) {
       let base_url = settings.apiPath;
-      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function (
+      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function(
         err,
         feed,
       ) {
@@ -37,14 +36,12 @@ const RssBody = ({ data, properties, intl, path, isEditMode }) => {
       ))}
     </div>
   ) : (
-      <div className="no-rss-feed-results" />
-    );
+    <div className="no-rss-feed-results" />
+  );
 };
 
 RssBody.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
-  path: PropTypes.string.isRequired,
-  isEditMode: PropTypes.bool,
 };
 
-export default injectIntl(RssBody);
+export default RssBody;

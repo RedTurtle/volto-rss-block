@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Segment } from 'semantic-ui-react';
-import { defineMessages, injectIntl } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import { TextWidget } from '@plone/volto/components';
-import { compose } from 'redux';
 import aheadSVG from '@plone/volto/icons/ahead.svg';
 import { Button } from 'semantic-ui-react';
 import { Icon } from '@plone/volto/components';
@@ -27,8 +27,8 @@ const messages = defineMessages({
   },
 });
 
-const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
-  console.log(data);
+const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
+  const intl = useIntl();
   const [template, setTemplate] = useState(data.template || 'default');
   const [feed, setFeed] = useState(data.feed || '');
   const [feedItemNumber, setFeedItemNumber] = useState(
@@ -62,7 +62,8 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
           data={data}
           block={block}
           onChangeBlock={onChangeBlock}
-          setTemplate={setTemplate} />
+          setTemplate={setTemplate}
+        />
       </Segment>
       <Segment className="actions" clearing>
         <Button
@@ -73,12 +74,12 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
           id="rss-form-submit"
           aria-label={intl.formatMessage(messages.setrss)}
           title={intl.formatMessage(messages.setrss)}
-          onClick={(name, value) => {
+          onClick={() => {
             onChangeBlock(block, {
               ...data,
-              template: template,
-              feed: feed,
-              feedItemNumber: feedItemNumber,
+              template,
+              feed,
+              feedItemNumber,
             });
           }}
         >
@@ -89,4 +90,11 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false, intl }) => {
   );
 };
 
-export default compose(injectIntl)(RssSidebar);
+RssSidebar.propTypes = {
+  data: PropTypes.objectOf(PropTypes.any).isRequired,
+  block: PropTypes.string.isRequired,
+  onChangeBlock: PropTypes.func.isRequired,
+  required: PropTypes.bool,
+};
+
+export default RssSidebar;
