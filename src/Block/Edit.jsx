@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import RssBody from './RssBody';
 import { SidebarPortal } from '@plone/volto/components';
 import RssSidebar from './RssSidebar';
@@ -62,4 +62,4 @@ Edit.propTypes = {
   pathname: PropTypes.string.isRequired,
 };
 
-export default injectIntl(Edit);
+export default Edit;

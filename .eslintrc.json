@@ -5,24 +5,9 @@
     "prettier/prettier": [
       "warn",
       {
-        "printWidth": 120,
         "singleQuote": true,
         "trailingComma": "all"
       }
     ]
-  },
-  "settings": {
-    "import/resolver": {
-      "alias": {
-        "map": [
-          ["volto-rss-block", "./volto-rss-block/src"]
-        ],
-        "extensions": [".js", ".jsx", ".json"]
-      },
-      "babel-plugin-root-import": {
-        "rootPathSuffix": "src"
-      }
-    }
   }
 }
-

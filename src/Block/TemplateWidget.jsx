@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Form } from 'semantic-ui-react';
-import { defineMessages, injectIntl } from 'react-intl';
+import { defineMessages, useIntl } from 'react-intl';
 import { blocks } from '~/config';
 import Select, { components } from 'react-select';
 import downSVG from '@plone/volto/icons/down-key.svg';
@@ -64,8 +64,8 @@ export const customSelectStyles = {
     color: state.isSelected
       ? '#007bc1'
       : state.isFocused
-        ? '#4a4a4a'
-        : 'inherit',
+      ? '#4a4a4a'
+      : 'inherit',
     ':active': {
       backgroundColor: null,
     },
@@ -78,8 +78,8 @@ export const DropdownIndicator = props => {
       {props.selectProps.menuIsOpen ? (
         <Icon name={upSVG} size="24px" color="#007bc1" />
       ) : (
-          <Icon name={downSVG} size="24px" color="#007bc1" />
-        )}
+        <Icon name={downSVG} size="24px" color="#007bc1" />
+      )}
     </components.DropdownIndicator>
   );
 };
@@ -96,14 +96,8 @@ export const Option = props => {
   );
 };
 
-const TemplateWidget = ({
-  data,
-  block,
-  onChangeBlock,
-  setTemplate,
-  required = false,
-  intl,
-}) => {
+const TemplateWidget = ({ data, block, onChangeBlock, setTemplate }) => {
+  const intl = useIntl();
   const templatesConfig = blocks?.blocksConfig?.rssBlock?.templates;
   const [value, setValue] = useState(data.template || 'default');
   if (templatesConfig && Object.keys(templatesConfig).length > 1) {
@@ -156,6 +150,7 @@ TemplateWidget.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   block: PropTypes.string.isRequired,
   onChangeBlock: PropTypes.func.isRequired,
+  setTemplate: PropTypes.func.isRequired,
 };
 
-export default injectIntl(TemplateWidget);
+export default TemplateWidget;
