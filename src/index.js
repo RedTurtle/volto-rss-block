@@ -1,15 +1,15 @@
 import rssSVG from '@plone/volto/icons/rss.svg';
-import RssView from './Block/View';
-import RssEdit from './Block/Edit';
-import DefaultRSSTemplate from './Templates/DefaultRssTemplate';
+import View from './Block/View.jsx';
+import Edit from './Block/Edit.jsx';
+import DefaultRSSTemplate from './Templates/DefaultRssTemplate.jsx';
 
 export const rssBlock = {
   id: 'rssBlock',
   title: 'Rss',
   icon: rssSVG,
   group: 'common',
-  view: RssView,
-  edit: RssEdit,
+  view: View,
+  edit: Edit,
   restricted: false,
   mostUsed: true,
   security: {
@@ -19,4 +19,4 @@ export const rssBlock = {
   templates: {
     default: { label: 'Default template', template: DefaultRSSTemplate },
   },
-}
+};

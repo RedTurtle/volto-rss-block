@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { blocks as customBlocks } from '@design/config';
+import { blocks as customBlocks } from '@package/config';
 import TemplateWidget from './TemplateWidget';
 
 const RssStyle = ({

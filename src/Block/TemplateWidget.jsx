@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Form } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import { blocks } from '~/config';
+import { blocks } from '@package/config';
 import Select, { components } from 'react-select';
 import downSVG from '@plone/volto/icons/down-key.svg';
 import upSVG from '@plone/volto/icons/up-key.svg';

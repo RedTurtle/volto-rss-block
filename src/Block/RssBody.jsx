@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Parser from 'rss-parser';
 import { settings } from '@plone/volto/config';
-import { blocks as customBlocks } from '@design/config';
+import { blocks as customBlocks } from '@package/config';
 
 const RssBody = ({ data }) => {
   const [feedItems, setFeedItems] = useState([]);
