@@ -2,7 +2,7 @@
   "name": "volto-rss-block",
   "version": "0.1.0",
   "description": "Volto block that shows an RSS feed",
-  "main": "build/volto-rss-block.js",
+  "main": "src/index.js",
   "repository": "https://github.com/RedTurtle/volto-rss-block",
   "bugs": "https://github.com/RedTurtle/volto-rss-block/issues",
   "author": "RedTurtle Technology",
