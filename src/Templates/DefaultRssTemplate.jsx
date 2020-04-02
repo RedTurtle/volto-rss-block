@@ -10,7 +10,7 @@ const CardWithoutImageRssTemplate = ({ item }) => {
                 <div className="card">
                     <div className="card-body">
                         <div className="category-top">
-                            {item.categories.length > 0 ? (
+                            {item?.categories?.length > 0 ? (
                                 <a className="category">
                                     {item.categories[0]._}
                                 </a>
