@@ -11,7 +11,6 @@ const RssStyle = ({
   required = false,
 }) => {
   const templatesConfig = customBlocks.blocksConfig.rssBlock.templates;
-  console.log(Object.keys(templatesConfig).length);
   if (templatesConfig && Object.keys(templatesConfig).length > 1) {
     return (
       <>
