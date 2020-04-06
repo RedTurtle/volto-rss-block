@@ -11,7 +11,7 @@ import RssSyle from './RssStyle';
 const messages = defineMessages({
   selectRssOptions: {
     id: 'selectRSSOptions',
-    defaultMessage: 'Seleziona le opzioni',
+    defaultMessage: 'Select options',
   },
   RssFeed: {
     id: 'RssFeed',
@@ -19,11 +19,11 @@ const messages = defineMessages({
   },
   setrss: {
     id: 'setrss',
-    defaultMessage: 'Imposta il feed',
+    defaultMessage: 'Set RSS feed',
   },
   RssFeedItemNumber: {
     id: 'RssFeedItemNumber',
-    defaultMessage: 'Numero di elementi da mostrare',
+    defaultMessage: 'Number of items to show',
   },
 });
 

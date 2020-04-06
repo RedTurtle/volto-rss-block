@@ -29,15 +29,7 @@ const RssBody = ({ data }) => {
 
   const ListingBodyTemplate = templateConfig[templateName].template;
 
-  return feedItems.length > 0 ? (
-    <div className="row">
-      {feedItems?.map((item, i) => (
-        <ListingBodyTemplate key={i} item={item} />
-      ))}
-    </div>
-  ) : (
-    <div className="no-rss-feed-results" />
-  );
+  return <ListingBodyTemplate items={feedItems} />;
 };
 
 RssBody.propTypes = {

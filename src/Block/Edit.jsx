@@ -15,7 +15,6 @@ const Edit = ({
   properties,
   pathname,
 }) => {
-  // componentDidMount
   useEffect(() => {
     if (!data.feed) {
       onChangeBlock(block, {
@@ -26,14 +25,15 @@ const Edit = ({
     }
     /* eslint-disable react-hooks/exhaustive-deps */
   }, []);
+
   return (
     <>
       {data?.feed?.length ? (
-        <FormattedMessage id="SiFeed" defaultMessage="Feed impostato">
+        <FormattedMessage id="feed_set" defaultMessage="Feed set">
           {message => <p className="items-preview">{message}</p>}
         </FormattedMessage>
       ) : (
-        <FormattedMessage id="NoFeed" defaultMessage="Nessun feed impostato">
+        <FormattedMessage id="feed_not_set" defaultMessage="No feed set">
           {message => <p className="items-preview">{message}</p>}
         </FormattedMessage>
       )}
