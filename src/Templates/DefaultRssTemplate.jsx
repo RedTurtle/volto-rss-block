@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl, defineMessages } from 'react-intl';
-import { Card } from 'semantic-ui-react';
+import { Card, Button } from 'semantic-ui-react';
 import moment from 'moment';
 
 const messages = defineMessages({
+  readMore: { id: 'rss_read_more', defaultMessage: 'Read more' },
   noResults: {
     id: 'rss_no_results',
     defaultMessage: 'No results from RSS feed.',
   },
 });
 
-const DefaultRSSTemplate = ({ items }) => {
+const DefaultRSSTemplate = ({ items = [] }) => {
   const intl = useIntl();
 
   return (
@@ -19,11 +20,17 @@ const DefaultRSSTemplate = ({ items }) => {
       {items?.length > 0 ? (
         items.map(item => (
           <Card
-            href={item.link ?? '#'}
-            header={item.title}
+            header={<a href={item.link ?? '#'}>{item.title}</a>}
             description={item.contentSnippet}
             extra={
-              <span className="date">{moment(item.pubDate).format('LL')}</span>
+              <div>
+                <span className="date">
+                  {moment(item.pubDate).format('LL')}
+                </span>
+                <Button size="mini" floated="right" href={item.link ?? '#'}>
+                  {intl.formatMessage(messages.readMore)}
+                </Button>
+              </div>
             }
             meta={item?.categories?.length > 0 ? item.categories[0]._ : null}
           />
