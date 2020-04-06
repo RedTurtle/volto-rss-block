@@ -1,36 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { injectIntl } from 'react-intl';
+import { useIntl, defineMessages } from 'react-intl';
+import { Card, Button } from 'semantic-ui-react';
 import moment from 'moment';
 
-const CardWithoutImageRssTemplate = ({ item }) => {
-    return (
-        <div className="col-12 col-lg-3">
-            <div className="card-wrapper">
-                <div className="card">
-                    <div className="card-body">
-                        <div className="category-top">
-                            {item?.categories?.length > 0 ? (
-                                <a className="category">
-                                    {item.categories[0]._}
-                                </a>
-                            ) : ''
-                            }
-                            <span className="data">{moment(item.pubDate).format('DD-MMM-Y')}</span>
-                        </div>
-                        <h5 className="big-heading card-title">{item.title}</h5>
-                        <p className="text-serif card-text">{item.contentSnippet}</p>
-                    </div>
-                    <a className="read-more" href={item?.link}>
-                        <span className="text">Leggi di più</span>
-                    </a>
-                </div>
-            </div>
-        </div >
-    );
-};
-CardWithoutImageRssTemplate.propTypes = {
-    item: PropTypes.object,
+const messages = defineMessages({
+  readMore: { id: 'rss_read_more', defaultMessage: 'Read more' },
+  noResults: {
+    id: 'rss_no_results',
+    defaultMessage: 'No results from RSS feed.',
+  },
+});
+
+const DefaultRSSTemplate = ({ items = [] }) => {
+  const intl = useIntl();
+
+  return (
+    <Card.Group>
+      {items?.length > 0 ? (
+        items.map(item => (
+          <Card
+            header={<a href={item.link ?? '#'}>{item.title}</a>}
+            description={item.contentSnippet}
+            extra={
+              <div>
+                {item.pubDate && (
+                  <span className="date">
+                    {moment(item.pubDate).format('LL')}
+                  </span>
+                )}
+                <Button size="mini" floated="right" href={item.link ?? '#'}>
+                  {intl.formatMessage(messages.readMore)}
+                </Button>
+              </div>
+            }
+            meta={item?.categories?.length > 0 ? item.categories[0]._ : null}
+          />
+        ))
+      ) : (
+        <div className="no-rss-feed-results">
+          {intl.formatMessage(messages.noResults)}
+        </div>
+      )}
+    </Card.Group>
+  );
 };
 
-export default injectIntl(CardWithoutImageRssTemplate);
+DefaultRSSTemplate.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.object),
+};
+
+export default DefaultRSSTemplate;
