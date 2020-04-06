@@ -20,7 +20,11 @@ const DefaultRSSTemplate = ({ items = [] }) => {
       {items?.length > 0 ? (
         items.map(item => (
           <Card
-            header={<a href={item.link ?? '#'}>{item.title}</a>}
+            header={
+              <a href={item.link ?? '#'}>
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+              </a>
+            }
             description={item.contentSnippet}
             extra={
               <div>
