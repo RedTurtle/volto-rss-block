@@ -19,4 +19,5 @@ export const rssBlock = {
   templates: {
     default: { label: 'Default template', template: DefaultRSSTemplate },
   },
-}
+  sidebarTab: 1,
+};
