@@ -24,9 +24,11 @@ const DefaultRSSTemplate = ({ items = [] }) => {
             description={item.contentSnippet}
             extra={
               <div>
-                <span className="date">
-                  {moment(item.pubDate).format('LL')}
-                </span>
+                {item.pubDate && (
+                  <span className="date">
+                    {moment(item.pubDate).format('LL')}
+                  </span>
+                )}
                 <Button size="mini" floated="right" href={item.link ?? '#'}>
                   {intl.formatMessage(messages.readMore)}
                 </Button>
