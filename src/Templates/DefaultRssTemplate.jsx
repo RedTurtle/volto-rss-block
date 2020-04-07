@@ -26,7 +26,7 @@ const DefaultRSSTemplate = ({ items = [] }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                {item.title}
+                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
               </a>
             }
             description={item.contentSnippet}
