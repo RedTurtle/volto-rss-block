@@ -20,16 +20,33 @@ const DefaultRSSTemplate = ({ items = [] }) => {
       {items?.length > 0 ? (
         items.map(item => (
           <Card
-            header={<a href={item.link ?? '#'}>{item.title}</a>}
+            header={
+              <a
+                href={item.link ?? '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.title}
+              </a>
+            }
             description={item.contentSnippet}
+            image={item.enclosure?.url ?? null}
             extra={
               <div>
                 {item.pubDate && (
                   <span className="date">
-                    {moment(item.pubDate).format('LL')}
+                    {moment(item.pubDate)
+                      .localeData(intl.locale)
+                      .format('LL')}
                   </span>
                 )}
-                <Button size="mini" floated="right" href={item.link ?? '#'}>
+                <Button
+                  size="mini"
+                  floated="right"
+                  href={item.link ?? '#'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {intl.formatMessage(messages.readMore)}
                 </Button>
               </div>
