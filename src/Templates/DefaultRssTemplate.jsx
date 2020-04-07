@@ -36,7 +36,7 @@ const DefaultRSSTemplate = ({ items = [] }) => {
                 {item.pubDate && (
                   <span className="date">
                     {moment(item.pubDate)
-                      .localeData(intl.locale)
+                      .locale(intl.locale)
                       .format('LL')}
                   </span>
                 )}
