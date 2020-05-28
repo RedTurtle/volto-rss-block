@@ -9,9 +9,9 @@
   "homepage": "https://github.com/RedTurtle/volto-rss-block#readme",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.8.3",
+    "@babel/preset-react": "7.8.3",
     "@typescript-eslint/eslint-plugin": "^2.23.0",
     "@typescript-eslint/parser": "^2.23.0",
     "babel-eslint": "^10.1.0",
