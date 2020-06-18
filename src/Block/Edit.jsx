@@ -30,11 +30,11 @@ const Edit = ({
     <>
       {data?.feed?.length ? (
         <FormattedMessage id="feed_set" defaultMessage="Feed set">
-          {message => <p className="items-preview">{message}</p>}
+          {(message) => <p className="items-preview">{message}</p>}
         </FormattedMessage>
       ) : (
         <FormattedMessage id="feed_not_set" defaultMessage="No feed set">
-          {message => <p className="items-preview">{message}</p>}
+          {(message) => <p className="items-preview">{message}</p>}
         </FormattedMessage>
       )}
       <RssBody
@@ -42,7 +42,7 @@ const Edit = ({
         properties={properties}
         block={block}
         path={getBaseUrl(pathname)}
-        isEditMode
+        isEditMode={true}
       />
       <SidebarPortal selected={selected}>
         <RssSidebar data={data} block={block} onChangeBlock={onChangeBlock} />

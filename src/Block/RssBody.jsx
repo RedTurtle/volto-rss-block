@@ -4,13 +4,13 @@ import Parser from 'rss-parser';
 import { settings } from '@plone/volto/config';
 import { blocks as customBlocks } from '~/config';
 
-const RssBody = ({ data }) => {
+const RssBody = ({ data, isEditMode }) => {
   const [feedItems, setFeedItems] = useState([]);
   useEffect(() => {
     let parser = new Parser();
     if (data?.feed?.length > 0) {
       let base_url = settings.apiPath;
-      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function(
+      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function (
         err,
         feed,
       ) {
@@ -29,7 +29,7 @@ const RssBody = ({ data }) => {
 
   const ListingBodyTemplate = templateConfig[templateName].template;
 
-  return <ListingBodyTemplate items={feedItems} />;
+  return <ListingBodyTemplate items={feedItems} isEditMode={isEditMode} />;
 };
 
 RssBody.propTypes = {
