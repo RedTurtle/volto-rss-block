@@ -21,3 +21,12 @@ export const rssBlock = {
   },
   sidebarTab: 1,
 };
+
+export default config => {
+  config.blocks.blocksConfig = {
+    ...config.blocks.blocksConfig,
+    rssBlock,
+  };
+
+  return config;
+};
