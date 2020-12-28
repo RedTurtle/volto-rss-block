@@ -19,7 +19,7 @@ const RssBody = ({ data, isEditMode }) => {
         setFeedItems(feed.items.slice(0, data?.feedItemNumber));
       });
     }
-  }, [data.feed, data.feedItemNumber]);
+  }, [data?.feed, data?.feedItemNumber]);
 
   const templateConfig = customBlocks.blocksConfig.rssBlock.templates;
 
