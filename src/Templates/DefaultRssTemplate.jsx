@@ -12,54 +12,57 @@ const messages = defineMessages({
   },
 });
 
-const DefaultRSSTemplate = ({ items = [] }) => {
+const DefaultRSSTemplate = ({ items = [], data = {} }) => {
   const intl = useIntl();
 
   return (
-    <Card.Group>
-      {items?.length > 0 ? (
-        items.map(item => (
-          <Card
-            header={
-              <a
-                href={item.link ?? '#'}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-              </a>
-            }
-            description={item.contentSnippet}
-            image={item.enclosure?.url ?? null}
-            extra={
-              <div>
-                {item.pubDate && (
-                  <span className="date">
-                    {moment(item.pubDate)
-                      .locale(intl.locale)
-                      .format('LL')}
-                  </span>
-                )}
-                <Button
-                  size="mini"
-                  floated="right"
+    <>
+      {data.title && <h2>{data.title}</h2>}
+      <Card.Group>
+        {items?.length > 0 ? (
+          items.map((item) => (
+            <Card
+              header={
+                <a
                   href={item.link ?? '#'}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {intl.formatMessage(messages.readMore)}
-                </Button>
-              </div>
-            }
-            meta={item?.categories?.length > 0 ? item.categories[0]._ : null}
-          />
-        ))
-      ) : (
-        <div className="no-rss-feed-results">
-          {intl.formatMessage(messages.noResults)}
-        </div>
-      )}
-    </Card.Group>
+                  <h3 style={{ marginTop: 0 }}>{item.title}</h3>
+                </a>
+              }
+              description={item.contentSnippet}
+              image={item.enclosure?.url ?? null}
+              extra={
+                <div>
+                  {(item.pubDate || item.date) && (
+                    <span className="date">
+                      {moment(item.pubDate || item.date)
+                        .locale(intl.locale)
+                        .format('LL')}
+                    </span>
+                  )}
+                  <Button
+                    size="mini"
+                    floated="right"
+                    href={item.link ?? '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {intl.formatMessage(messages.readMore)}
+                  </Button>
+                </div>
+              }
+              meta={item?.categories?.length > 0 ? item.categories[0]._ : null}
+            />
+          ))
+        ) : (
+          <div className="no-rss-feed-results">
+            {intl.formatMessage(messages.noResults)}
+          </div>
+        )}
+      </Card.Group>
+    </>
   );
 };
 

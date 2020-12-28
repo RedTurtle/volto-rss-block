@@ -19,7 +19,6 @@ const RssStyle = ({
             data={data}
             block={block}
             onChangeBlock={onChangeBlock}
-            setTemplate={setTemplate}
             required={required}
           />
         </div>

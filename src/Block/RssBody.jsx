@@ -19,6 +19,7 @@ const RssBody = ({ data, isEditMode }) => {
       });
     }
   }, [data]);
+  console.log(feedItems);
 
   const templateConfig = customBlocks.blocksConfig.rssBlock.templates;
 
@@ -29,7 +30,13 @@ const RssBody = ({ data, isEditMode }) => {
 
   const ListingBodyTemplate = templateConfig[templateName].template;
 
-  return <ListingBodyTemplate items={feedItems} isEditMode={isEditMode} />;
+  return (
+    <ListingBodyTemplate
+      items={feedItems}
+      isEditMode={isEditMode}
+      data={data}
+    />
+  );
 };
 
 RssBody.propTypes = {
