@@ -23,11 +23,13 @@ const TemplateWidget = ({ data, block, onChangeBlock }) => {
   const intl = useIntl();
   const templatesConfig = blocks?.blocksConfig?.rssBlock?.templates;
 
+  const template = data.template || 'default';
+
   useEffect(() => {
     if (!data.template) {
       onChangeBlock(block, {
         ...data,
-        template: 'default',
+        template: template,
       });
     }
   }, []);
@@ -60,8 +62,8 @@ const TemplateWidget = ({ data, block, onChangeBlock }) => {
                 theme={selectTheme}
                 components={{ DropdownIndicator, Option }}
                 value={{
-                  value: data.template || 'default',
-                  label: templatesConfig[data.template].label,
+                  value: template,
+                  label: templatesConfig[template].label,
                 }}
                 onChange={(field) => {
                   onChangeBlock(block, {

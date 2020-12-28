@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Form, Grid } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import { TextWidget } from '@plone/volto/components';
-import aheadSVG from '@plone/volto/icons/ahead.svg';
-import { Button } from 'semantic-ui-react';
-import { Icon } from '@plone/volto/components';
+import UrlWidget from '@plone/volto/components/manage/Widgets/UrlWidget';
 import RssStyle from './RssStyle';
 
 const messages = defineMessages({
@@ -29,15 +27,28 @@ const messages = defineMessages({
     id: 'RssFeedItemNumber',
     defaultMessage: 'Number of items to show',
   },
+  linkMore: {
+    id: 'linkMore',
+    defaultMessage: 'Link more',
+  },
+  linkMoreTitle: {
+    id: 'linkMoreTitle',
+    defaultMessage: 'Title for link more',
+  },
 });
 
 const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
   const intl = useIntl();
 
-  const [feed, setFeed] = useState(data.feed || '');
-  const [feedItemNumber, setFeedItemNumber] = useState(
-    data.feedItemNumber || 10,
-  );
+  useEffect(() => {
+    if (!data.feedItemNumber) {
+      onChangeBlock(block, {
+        ...data,
+        feedItemNumber: 10,
+      });
+    }
+  }, []);
+
   return (
     <Segment.Group raised>
       <header className="header pulled">
@@ -61,51 +72,56 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
       </Segment>
       <Segment>
         <TextWidget
-          id="RssFeed"
+          id="feed"
           title={intl.formatMessage(messages.RssFeedURL)}
           required={true}
-          value={feed}
+          value={data.feed || ''}
           onChange={(name, value) => {
-            setFeed(value);
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
           }}
         />
         <TextWidget
-          id="RssFeedItemNumber"
+          id="feedItemNumber"
           title={intl.formatMessage(messages.RssFeedItemNumber)}
           required={true}
-          value={feedItemNumber}
+          value={data.feedItemNumber}
           onChange={(name, value) => {
-            setFeedItemNumber(value);
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
+          }}
+        />
+      </Segment>
+      <Segment>
+        <TextWidget
+          id="linkMoreTitle"
+          title={intl.formatMessage(messages.linkMoreTitle)}
+          required={false}
+          value={data.linkMoreTitle || ''}
+          onChange={(name, value) => {
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
           }}
         />
 
-        <Form.Field inline>
-          <Grid>
-            <Grid.Row stretched>
-              <Grid.Column width="12" textAlign="right" floated="right">
-                <Button
-                  basic
-                  primary
-                  floated="right"
-                  type="submit"
-                  id="rss-form-submit"
-                  aria-label={intl.formatMessage(messages.setrss)}
-                  title={intl.formatMessage(messages.setrss)}
-                  onClick={() => {
-                    onChangeBlock(block, {
-                      ...data,
-                      template,
-                      feed,
-                      feedItemNumber,
-                    });
-                  }}
-                >
-                  <Icon className="circled" name={aheadSVG} size="30px" />
-                </Button>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Form.Field>
+        <UrlWidget
+          id="linkMore"
+          title={intl.formatMessage(messages.linkMore)}
+          required={false}
+          value={data.linkMore}
+          onChange={(name, value) => {
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
+          }}
+        />
       </Segment>
     </Segment.Group>
   );

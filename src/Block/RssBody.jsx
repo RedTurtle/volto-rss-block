@@ -8,6 +8,7 @@ const RssBody = ({ data, isEditMode }) => {
   const [feedItems, setFeedItems] = useState([]);
   useEffect(() => {
     let parser = new Parser();
+    setFeedItems([]);
     if (data?.feed?.length > 0) {
       let base_url = settings.apiPath;
       parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function (
@@ -18,8 +19,7 @@ const RssBody = ({ data, isEditMode }) => {
         setFeedItems(feed.items.slice(0, data?.feedItemNumber));
       });
     }
-  }, [data]);
-  console.log(feedItems);
+  }, [data.feed, data.feedItemNumber]);
 
   const templateConfig = customBlocks.blocksConfig.rssBlock.templates;
 

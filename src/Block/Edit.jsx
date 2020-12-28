@@ -23,27 +23,24 @@ const Edit = ({
         block,
       });
     }
-    /* eslint-disable react-hooks/exhaustive-deps */
   }, []);
 
   return (
     <>
-      {data?.feed?.length ? (
-        <FormattedMessage id="feed_set" defaultMessage="Feed set">
-          {(message) => <p className="items-preview">{message}</p>}
-        </FormattedMessage>
-      ) : (
+      {!data.feed || data?.feed?.length <= 0 ? (
         <FormattedMessage id="feed_not_set" defaultMessage="No feed set">
           {(message) => <p className="items-preview">{message}</p>}
         </FormattedMessage>
+      ) : (
+        <RssBody
+          data={data}
+          properties={properties}
+          block={block}
+          path={getBaseUrl(pathname)}
+          isEditMode={true}
+        />
       )}
-      <RssBody
-        data={data}
-        properties={properties}
-        block={block}
-        path={getBaseUrl(pathname)}
-        isEditMode={true}
-      />
+
       <SidebarPortal selected={selected}>
         <RssSidebar data={data} block={block} onChangeBlock={onChangeBlock} />
       </SidebarPortal>
