@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Segment } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import { TextWidget } from '@plone/volto/components';
-import aheadSVG from '@plone/volto/icons/ahead.svg';
-import { Button } from 'semantic-ui-react';
-import { Icon } from '@plone/volto/components';
-import RssSyle from './RssStyle';
+import UrlWidget from '@plone/volto/components/manage/Widgets/UrlWidget';
+import RssStyle from './RssStyle';
 
 const messages = defineMessages({
-  selectRssOptions: {
-    id: 'selectRSSOptions',
-    defaultMessage: 'Select options',
-  },
   RssFeed: {
     id: 'RssFeed',
     defaultMessage: 'RSS Feed',
+  },
+  title: {
+    id: 'title',
+    defaultMessage: 'Title',
+  },
+  RssFeedURL: {
+    id: 'RssFeed Url',
+    defaultMessage: 'RSS Feed URL',
   },
   setrss: {
     id: 'setrss',
@@ -25,66 +27,101 @@ const messages = defineMessages({
     id: 'RssFeedItemNumber',
     defaultMessage: 'Number of items to show',
   },
+  linkMore: {
+    id: 'linkMore',
+    defaultMessage: 'Link more',
+  },
+  linkMoreTitle: {
+    id: 'linkMoreTitle',
+    defaultMessage: 'Title for link more',
+  },
 });
 
 const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
   const intl = useIntl();
-  const [template, setTemplate] = useState(data.template || 'default');
-  const [feed, setFeed] = useState(data.feed || '');
-  const [feedItemNumber, setFeedItemNumber] = useState(
-    data.feedItemNumber || 10,
-  );
+
+  useEffect(() => {
+    if (!data.feedItemNumber) {
+      onChangeBlock(block, {
+        ...data,
+        feedItemNumber: 10,
+      });
+    }
+  }, []);
+
   return (
     <Segment.Group raised>
+      <header className="header pulled">
+        <h2>{intl.formatMessage(messages.RssFeed)}</h2>
+      </header>
+
       <Segment>
-        <header className="header pulled">
-          <h2>{intl.formatMessage(messages.selectRssOptions)}</h2>
-        </header>
         <TextWidget
-          id="RssFeed"
-          title={intl.formatMessage(messages.RssFeed)}
-          required={true}
-          value={feed}
+          id="title"
+          title={intl.formatMessage(messages.title)}
+          required={false}
+          value={data.title}
           onChange={(name, value) => {
-            setFeed(value);
-          }}
-        />
-        <TextWidget
-          id="RssFeedItemNumber"
-          title={intl.formatMessage(messages.RssFeedItemNumber)}
-          required={true}
-          value={feedItemNumber}
-          onChange={(name, value) => {
-            setFeedItemNumber(value);
-          }}
-        />
-        <RssSyle
-          data={data}
-          block={block}
-          onChangeBlock={onChangeBlock}
-          setTemplate={setTemplate}
-        />
-      </Segment>
-      <Segment className="actions" clearing>
-        <Button
-          basic
-          primary
-          floated="right"
-          type="submit"
-          id="rss-form-submit"
-          aria-label={intl.formatMessage(messages.setrss)}
-          title={intl.formatMessage(messages.setrss)}
-          onClick={() => {
             onChangeBlock(block, {
               ...data,
-              template,
-              feed,
-              feedItemNumber,
+              [name]: value,
             });
           }}
-        >
-          <Icon className="circled" name={aheadSVG} size="30px" />
-        </Button>
+        />
+        <RssStyle data={data} block={block} onChangeBlock={onChangeBlock} />
+      </Segment>
+      <Segment>
+        <TextWidget
+          id="feed"
+          title={intl.formatMessage(messages.RssFeedURL)}
+          required={true}
+          value={data.feed || ''}
+          onChange={(name, value) => {
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
+          }}
+        />
+        <TextWidget
+          id="feedItemNumber"
+          title={intl.formatMessage(messages.RssFeedItemNumber)}
+          required={true}
+          value={data.feedItemNumber}
+          onChange={(name, value) => {
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
+          }}
+        />
+      </Segment>
+      <Segment>
+        <TextWidget
+          id="linkMoreTitle"
+          title={intl.formatMessage(messages.linkMoreTitle)}
+          required={false}
+          value={data.linkMoreTitle || ''}
+          onChange={(name, value) => {
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
+          }}
+        />
+
+        <UrlWidget
+          id="linkMore"
+          title={intl.formatMessage(messages.linkMore)}
+          required={false}
+          value={data.linkMore}
+          onChange={(name, value) => {
+            onChangeBlock(block, {
+              ...data,
+              [name]: value,
+            });
+          }}
+        />
       </Segment>
     </Segment.Group>
   );
