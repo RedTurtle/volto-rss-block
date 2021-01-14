@@ -34,7 +34,6 @@ const RssBody = ({ data, isEditMode }) => {
   const SkeletonTemplate = templateConfig[templateName].skeleton;
 
   const showSkeleton = SkeletonTemplate != null && loading;
-  console.log('showSkeleton', showSkeleton);
 
   return showSkeleton ? (
     <SkeletonTemplate isEditMode={isEditMode} data={data} />
