@@ -1,6 +1,6 @@
 {
   "name": "volto-rss-block",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Volto block that shows an RSS feed",
   "main": "src/index.js",
   "repository": "https://github.com/RedTurtle/volto-rss-block",
