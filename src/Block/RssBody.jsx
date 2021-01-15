@@ -6,6 +6,7 @@ import { blocks as customBlocks } from '~/config';
 
 const RssBody = ({ data, isEditMode }) => {
   const [feedItems, setFeedItems] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     let parser = new Parser();
     setFeedItems([]);
@@ -15,6 +16,7 @@ const RssBody = ({ data, isEditMode }) => {
         err,
         feed,
       ) {
+        setLoading(false);
         if (err) throw err;
         setFeedItems(feed.items.slice(0, data?.feedItemNumber));
       });
@@ -28,14 +30,15 @@ const RssBody = ({ data, isEditMode }) => {
       ? data.template
       : 'default';
 
-  const ListingBodyTemplate = templateConfig[templateName].template;
+  const Template = templateConfig[templateName].template;
+  const SkeletonTemplate = templateConfig[templateName].skeleton;
 
-  return (
-    <ListingBodyTemplate
-      items={feedItems}
-      isEditMode={isEditMode}
-      data={data}
-    />
+  const showSkeleton = SkeletonTemplate != null && loading;
+
+  return showSkeleton ? (
+    <SkeletonTemplate isEditMode={isEditMode} data={data} />
+  ) : (
+    <Template items={feedItems} isEditMode={isEditMode} data={data} />
   );
 };
 
