@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Form } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import { blocks } from '~/config';
 import Select from 'react-select';
+import config from '@plone/volto/registry';
 
 import {
   Option,
@@ -21,7 +21,7 @@ const messages = defineMessages({
 
 const TemplateWidget = ({ data, block, onChangeBlock }) => {
   const intl = useIntl();
-  const templatesConfig = blocks?.blocksConfig?.rssBlock?.templates;
+  const templatesConfig = config.blocks.blocksConfig.rssBlock?.templates;
 
   const template = data.template || 'default';
 
