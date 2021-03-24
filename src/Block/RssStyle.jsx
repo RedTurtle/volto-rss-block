@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { blocks as customBlocks } from '~/config';
 import TemplateWidget from './TemplateWidget';
+import config from '@plone/volto/registry';
 
 const RssStyle = ({
   data,
@@ -10,7 +10,7 @@ const RssStyle = ({
   setTemplate,
   required = false,
 }) => {
-  const templatesConfig = customBlocks.blocksConfig.rssBlock.templates;
+  const templatesConfig = config.blocks.blocksConfig.rssBlock.templates;
   if (templatesConfig && Object.keys(templatesConfig).length > 1) {
     return (
       <>
