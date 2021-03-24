@@ -13,44 +13,44 @@ msgstr ""
 
  #: Block/RssSidebar
 msgid "RssFeed"
-msgstr ""
+msgstr "Feed RSS"
 
 #: Block/RssSidebar
 msgid "RssFeed Url"
-msgstr ""
+msgstr "URL del feed RSS"
 
 #: Block/RssSidebar
 msgid "RssFeedItemNumber"
-msgstr ""
+msgstr "Numero di elementi da mostrare"
 
 #: Block/TemplateWidget
 msgid "Template"
-msgstr ""
+msgstr "Template"
 
 #: Block/Edit
 msgid "feed_not_set"
-msgstr ""
+msgstr "Feed RSS non impostato"
 
 #: Block/RssSidebar
 msgid "linkMore"
-msgstr ""
+msgstr "Link ad altro"
 
 #: Block/RssSidebar
 msgid "linkMoreTitle"
-msgstr ""
+msgstr "Titolo per il link ad altro"
 
 #: Templates/DefaultRssTemplate
 msgid "rss_no_results"
-msgstr ""
+msgstr "Nessun risultato dal feed RSS"
 
 #: Templates/DefaultRssTemplate
 msgid "rss_read_more"
-msgstr ""
+msgstr "Leggi tutto"
 
 #: Block/RssSidebar
 msgid "setrss"
-msgstr ""
+msgstr "Imposta feed RSS"
 
 #: Block/RssSidebar
 msgid "title"
-msgstr ""
+msgstr "Titolo"
