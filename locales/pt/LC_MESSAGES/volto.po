@@ -1,0 +1,56 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+ #: Block/RssSidebar
+msgid "RssFeed"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "RssFeed Url"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "RssFeedItemNumber"
+msgstr ""
+
+#: Block/TemplateWidget
+msgid "Template"
+msgstr ""
+
+#: Block/Edit
+msgid "feed_not_set"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "linkMore"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "linkMoreTitle"
+msgstr ""
+
+#: Templates/DefaultRssTemplate
+msgid "rss_no_results"
+msgstr ""
+
+#: Templates/DefaultRssTemplate
+msgid "rss_read_more"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "setrss"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "title"
+msgstr ""
