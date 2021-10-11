@@ -3,13 +3,7 @@ import PropTypes from 'prop-types';
 import TemplateWidget from './TemplateWidget';
 import config from '@plone/volto/registry';
 
-const RssStyle = ({
-  data,
-  block,
-  onChangeBlock,
-  setTemplate,
-  required = false,
-}) => {
+const RssStyle = ({ data, block, onChangeBlock, required = false }) => {
   const templatesConfig = config.blocks.blocksConfig.rssBlock.templates;
   if (templatesConfig && Object.keys(templatesConfig).length > 1) {
     return (
@@ -33,7 +27,6 @@ RssStyle.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   block: PropTypes.string.isRequired,
   onChangeBlock: PropTypes.func.isRequired,
-  setTemplate: PropTypes.func.isRequired,
   required: PropTypes.bool,
 };
 

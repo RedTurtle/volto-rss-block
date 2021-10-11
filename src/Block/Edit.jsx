@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import RssBody from './RssBody';
@@ -15,20 +15,12 @@ const Edit = ({
   properties,
   pathname,
 }) => {
-  useEffect(() => {
-    if (!data.feed) {
-      onChangeBlock(block, {
-        ...data,
-        feed: '',
-        block,
-      });
-    }
-  }, []);
+  let feeds = data?.feeds?.filter((f) => f.url?.length > 0) ?? [];
 
   return (
     <>
-      {!data.feed || data?.feed?.length <= 0 ? (
-        <FormattedMessage id="feed_not_set" defaultMessage="No feed set">
+      {feeds?.length <= 0 ? (
+        <FormattedMessage id="feed_not_set" defaultMessage="No feeds set">
           {(message) => <p className="items-preview">{message}</p>}
         </FormattedMessage>
       ) : (

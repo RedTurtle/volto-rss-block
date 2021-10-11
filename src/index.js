@@ -2,6 +2,8 @@ import rssSVG from '@plone/volto/icons/rss.svg';
 import RssView from './Block/View';
 import RssEdit from './Block/Edit';
 import DefaultRSSTemplate from './Templates/DefaultRssTemplate';
+import { rssFromBlockReducer as rssFromBlock } from './reducers';
+export { getRSSFromBlock } from './actions';
 
 export const rssBlock = {
   id: 'rssBlock',
@@ -22,11 +24,16 @@ export const rssBlock = {
   sidebarTab: 1,
 };
 
-export default config => {
+export default function applyConfig(config) {
   config.blocks.blocksConfig = {
     ...config.blocks.blocksConfig,
     rssBlock,
   };
 
+  config.addonReducers = {
+    ...config.addonReducers,
+    rssFromBlock,
+  };
+
   return config;
-};
+}
