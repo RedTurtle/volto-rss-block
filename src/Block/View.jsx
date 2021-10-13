@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import RssBody from './RssBody';
 
-const View = ({ data, properties, block, path }) => {
+const View = ({ data, properties, id, path }) => {
   return (
-    <div className={cx('block rssBlock', data.template)}>
-      <RssBody data={data} properties={properties} block={block} path={path} />
+    <div className={cx('block rssBlock', data.template ?? 'default')}>
+      <RssBody data={data} properties={properties} block={id} path={path} />
     </div>
   );
 };

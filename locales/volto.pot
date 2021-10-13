@@ -1,7 +1,7 @@
 msgid ""
  msgstr ""
  "Project-Id-Version: Plone\n"
- "POT-Creation-Date: 2021-03-24T18:25:00.708Z\n"
+ "POT-Creation-Date: 2021-10-12T10:46:26.211Z\n"
  "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
  "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
@@ -14,8 +14,23 @@ msgid ""
  "Domain: volto\n"
 
 #: Block/RssSidebar
+# defaultMessage: Feed
+msgid "Feed"
+msgstr ""
+
+#: Block/RssSidebar
+# defaultMessage: Add feed
+msgid "RSSFeedAdd"
+msgstr ""
+
+#: Block/RssSidebar
 # defaultMessage: RSS Feed
 msgid "RssFeed"
+msgstr ""
+
+#: Block/RssSidebar
+# defaultMessage: RSS Feed Source name
+msgid "RssFeed Source"
 msgstr ""
 
 #: Block/RssSidebar
@@ -24,8 +39,8 @@ msgid "RssFeed Url"
 msgstr ""
 
 #: Block/RssSidebar
-# defaultMessage: Number of items to show
-msgid "RssFeedItemNumber"
+# defaultMessage: Maximum items to show
+msgid "RssLimit"
 msgstr ""
 
 #: Block/TemplateWidget
@@ -34,8 +49,13 @@ msgid "Template"
 msgstr ""
 
 #: Block/Edit
-# defaultMessage: No feed set
+# defaultMessage: No feeds set
 msgid "feed_not_set"
+msgstr ""
+
+#: Block/RssSidebar
+# defaultMessage: Link more href
+msgid "linkHref"
 msgstr ""
 
 #: Block/RssSidebar

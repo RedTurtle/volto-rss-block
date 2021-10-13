@@ -3,22 +3,26 @@ import PropTypes from 'prop-types';
 
 import { useSelector, useDispatch } from 'react-redux';
 import config from '@plone/volto/registry';
-import { getRSSFromBlock } from 'volto-rss-block';
+import { getRSSMixerData } from 'volto-rss-block';
 
 const RssBody = ({ block, data, isEditMode }) => {
   const dispatch = useDispatch();
-  const feedItems = useSelector((state) => state.rssFromBlock.data);
-  const loading = useSelector((state) => state.rssFromBlock.loading);
-  const loaded = useSelector((state) => state.rssFromBlock.loaded);
+  const rssState = useSelector(
+    (state) => state.rssMixerData?.subrequests[block],
+  );
+  const feedItems = rssState?.data;
+  const loading = rssState?.loading;
+  const loaded = rssState?.loaded;
 
   useEffect(() => {
     if (!loading && (isEditMode || (!isEditMode && !loaded))) {
       if (data.feeds?.filter((f) => f.url?.length > 0)?.length > 0) {
-        dispatch(getRSSFromBlock(data, block));
+        dispatch(getRSSMixerData(data, block));
       }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data.feeds]);
+  }, [data.feeds, data.limit]);
 
   const templateConfig = config.blocks.blocksConfig.rssBlock.templates;
 

@@ -2,8 +2,8 @@ import rssSVG from '@plone/volto/icons/rss.svg';
 import RssView from './Block/View';
 import RssEdit from './Block/Edit';
 import DefaultRSSTemplate from './Templates/DefaultRssTemplate';
-import { rssFromBlockReducer as rssFromBlock } from './reducers';
-export { getRSSFromBlock } from './actions';
+import { rssMixerDataReducer as rssMixerData } from './reducers';
+export { getRSSMixerData } from './actions';
 
 export const rssBlock = {
   id: 'rssBlock',
@@ -32,7 +32,7 @@ export default function applyConfig(config) {
 
   config.addonReducers = {
     ...config.addonReducers,
-    rssFromBlock,
+    rssMixerData,
   };
 
   return config;

@@ -11,17 +11,29 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
 
- #: Block/RssSidebar
+#: Block/RssSidebar
+msgid "Feed"
+msgstr "Feed"
+
+#: Block/RssSidebar
+msgid "RSSFeedAdd"
+msgstr "Aggiungi un feed"
+
+#: Block/RssSidebar
 msgid "RssFeed"
 msgstr "Feed RSS"
+
+#: Block/RssSidebar
+msgid "RssFeed Source"
+msgstr "Nome della sorgente"
 
 #: Block/RssSidebar
 msgid "RssFeed Url"
 msgstr "URL del feed RSS"
 
 #: Block/RssSidebar
-msgid "RssFeedItemNumber"
-msgstr "Numero di elementi da mostrare"
+msgid "RssLimit"
+msgstr "Numero massimo di elementi da mostrare"
 
 #: Block/TemplateWidget
 msgid "Template"
@@ -30,6 +42,10 @@ msgstr "Template"
 #: Block/Edit
 msgid "feed_not_set"
 msgstr "Feed RSS non impostato"
+
+#: Block/RssSidebar
+msgid "linkHref"
+msgstr "Url per il link ad altro"
 
 #: Block/RssSidebar
 msgid "linkMore"

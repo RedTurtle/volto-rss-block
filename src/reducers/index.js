@@ -1,4 +1,4 @@
-import { GET_RSS_FROM_BLOCK } from '../actions';
+import { GET_RSS_MIXER_DATA } from '../actions';
 
 const initialState = {
   error: null,
@@ -12,16 +12,16 @@ function getRequestKey(actionType) {
 }
 
 /**
- * getRssFromBlock reducer.
- * @function submitForm
+ * getRSSMixerData reducer.
+ * @function rssMixerDataReducer
  * @param {Object} state Current state.
  * @param {Object} action Action to be handled.
  * @returns {Object} New state.
  */
 
-export const rssFromBlockReducer = (state = initialState, action = {}) => {
+export const rssMixerDataReducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case `${GET_RSS_FROM_BLOCK}_PENDING`:
+    case `${GET_RSS_MIXER_DATA}_PENDING`:
       return action.subrequest
         ? {
             ...state,
@@ -45,13 +45,14 @@ export const rssFromBlockReducer = (state = initialState, action = {}) => {
               error: null,
             },
           };
-    case `${GET_RSS_FROM_BLOCK}_SUCCESS`:
+    case `${GET_RSS_MIXER_DATA}_SUCCESS`:
       return action.subrequest
         ? {
             ...state,
             subrequests: {
               ...state.subrequests,
               [action.subrequest]: {
+                data: action.result,
                 loading: false,
                 loaded: true,
                 error: null,
@@ -66,7 +67,7 @@ export const rssFromBlockReducer = (state = initialState, action = {}) => {
               error: null,
             },
           };
-    case `${GET_RSS_FROM_BLOCK}_FAIL`:
+    case `${GET_RSS_MIXER_DATA}_FAIL`:
       return action.subrequest
         ? {
             ...state,

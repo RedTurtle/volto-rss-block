@@ -1,18 +1,18 @@
-export const GET_RSS_FROM_BLOCK = 'GET_RSS_FROM_BLOCK';
+export const GET_RSS_MIXER_DATA = 'GET_RSS_MIXER_DATA';
 
 /**
- * getRSSFromBlock function
- * @function getRSSFromBlock
+ * getRSSMixerData function
+ * @function getRSSMixerData
  * @param {string} path
  * @param {Object} data
  */
-export function getRSSFromBlock(data, subrequest) {
+export function getRSSMixerData(data, subrequest) {
   return {
-    type: GET_RSS_FROM_BLOCK,
+    type: GET_RSS_MIXER_DATA,
     subrequest,
     request: {
       op: 'post',
-      path: '/@get_rss_from_block',
+      path: '/@rss_mixer_data',
       data,
     },
   };

@@ -1,0 +1,14 @@
+.rssBlock .default-rss-template .ui.card h3 {
+  margin-top: 0;
+}
+
+.rssBlock .default-rss-template .source {
+  font-size: 0.8rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.rssBlock .default-rss-template .read-more {
+  padding: 3rem 0 2rem 0;
+  text-align: center;
+}

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Segment, Accordion, Button } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
 import { TextWidget, Icon } from '@plone/volto/components';
+import NumberWidget from '@plone/volto/components/manage/Widgets/NumberWidget';
 import UrlWidget from '@plone/volto/components/manage/Widgets/UrlWidget';
 import upSVG from '@plone/volto/icons/up-key.svg';
 import downSVG from '@plone/volto/icons/down-key.svg';
@@ -121,15 +122,16 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
           }}
         />
         <RssStyle data={data} block={block} onChangeBlock={onChangeBlock} />
-        <TextWidget
+        <NumberWidget
           id="limit"
           title={intl.formatMessage(messages.limit)}
           required={true}
           value={data.limit}
+          defaultValue={10}
           onChange={(name, value) => {
             onChangeBlock(block, {
               ...data,
-              [name]: value,
+              [name]: value > -1 ? parseInt(value) : null,
             });
           }}
         />
@@ -214,7 +216,7 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
       {/* LINK MORE */}
 
       <Accordion fluid styled className="form rss-linkmore">
-        <Accordion.Title active={TextTrackCue} index={0} onClick={() => {}}>
+        <Accordion.Title active={true} index={0} onClick={() => {}}>
           {intl.formatMessage(messages.linkMore)}
         </Accordion.Title>
         <Accordion.Content active={true}>
