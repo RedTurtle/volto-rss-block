@@ -13,7 +13,7 @@ See [redturtle.rssservice](https://github.com/RedTurtle/redturtle.rssservice).
 
 > If you're using Volto < 12, then use v1.2.0.
 
-> If you're usign volto-rss.block > 2.0.0., the use redturtle.rssservice >= 0.1.1
+> If you're usign volto-rss-block > 2.0.0., the use redturtle.rssservice >= 0.1.1
 
 Load this addon (see https://docs.voltocms.com/addons/#configuring-a-volto-project-to-use-an-addon).
 
