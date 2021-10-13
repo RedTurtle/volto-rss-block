@@ -12,7 +12,19 @@ msgstr ""
 "Plural-Forms: \n"
 
  #: Block/RssSidebar
+msgid "Feed"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "RSSFeedAdd"
+msgstr ""
+
+#: Block/RssSidebar
 msgid "RssFeed"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "RssFeed Source"
 msgstr ""
 
 #: Block/RssSidebar
@@ -20,7 +32,7 @@ msgid "RssFeed Url"
 msgstr ""
 
 #: Block/RssSidebar
-msgid "RssFeedItemNumber"
+msgid "RssLimit"
 msgstr ""
 
 #: Block/TemplateWidget
@@ -29,6 +41,10 @@ msgstr ""
 
 #: Block/Edit
 msgid "feed_not_set"
+msgstr ""
+
+#: Block/RssSidebar
+msgid "linkHref"
 msgstr ""
 
 #: Block/RssSidebar

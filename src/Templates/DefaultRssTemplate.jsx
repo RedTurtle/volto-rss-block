@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useIntl, defineMessages } from 'react-intl';
 import { Card, Button, Grid } from 'semantic-ui-react';
 import moment from 'moment';
+import './defaultRssTemplate.css';
 
 const messages = defineMessages({
   readMore: { id: 'rss_read_more', defaultMessage: 'Read more' },
@@ -16,21 +17,24 @@ const DefaultRSSTemplate = ({ items = [], data = {} }) => {
   const intl = useIntl();
 
   return (
-    <>
+    <div className="default-rss-template">
       {items?.length > 0 ? (
         <>
-          <Card.Group>
-            {data.title && <h2>{data.title}</h2>}
+          {data.title && <h2>{data.title}</h2>}
+          <Card.Group itemsPerRow={4}>
             {items.map((item) => (
               <Card
                 header={
-                  <a
-                    href={item.link ?? '#'}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <h3 style={{ marginTop: 0 }}>{item.title}</h3>
-                  </a>
+                  <>
+                    <a
+                      href={item.link ?? '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h3>{item.title}</h3>
+                    </a>
+                    {item.source && <div className="source">{item.source}</div>}
+                  </>
                 }
                 description={item.contentSnippet}
                 image={item.enclosure?.url ?? null}
@@ -61,15 +65,11 @@ const DefaultRSSTemplate = ({ items = [], data = {} }) => {
             ))}
           </Card.Group>
           {data.linkMore && data.linkMoreTitle && (
-            <Grid>
-              <Grid.Row>
-                <Grid.Col textAlign="center">
-                  <Button as="a" href={data.linkMore}>
-                    {data.linkMoreTitle}
-                  </Button>
-                </Grid.Col>
-              </Grid.Row>
-            </Grid>
+            <div className="read-more">
+              <Button as="a" href={data.linkMore} primary>
+                {data.linkMoreTitle}
+              </Button>
+            </div>
           )}
         </>
       ) : data.feed ? (
@@ -77,7 +77,7 @@ const DefaultRSSTemplate = ({ items = [], data = {} }) => {
           {intl.formatMessage(messages.noResults)}
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
 

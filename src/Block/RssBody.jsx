@@ -1,26 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Parser from 'rss-parser';
-import config from '@plone/volto/registry';
 
-const RssBody = ({ data, isEditMode }) => {
-  const [feedItems, setFeedItems] = useState([]);
-  const [loading, setLoading] = useState(true);
+import { useSelector, useDispatch } from 'react-redux';
+import config from '@plone/volto/registry';
+import { getRSSMixerData } from 'volto-rss-block';
+
+const RssBody = ({ block, data, isEditMode }) => {
+  const dispatch = useDispatch();
+  const rssState = useSelector(
+    (state) => state.rssMixerData?.subrequests[block],
+  );
+  const feedItems = rssState?.data;
+  const loading = rssState?.loading;
+  const loaded = rssState?.loaded;
+
   useEffect(() => {
-    let parser = new Parser();
-    setFeedItems([]);
-    if (data?.feed?.length > 0) {
-      let base_url = config.settings.apiPath;
-      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function (
-        err,
-        feed,
-      ) {
-        setLoading(false);
-        if (err) throw err;
-        setFeedItems(feed.items.slice(0, data?.feedItemNumber));
-      });
+    if (!loading && (isEditMode || (!isEditMode && !loaded))) {
+      if (data.feeds?.filter((f) => f.url?.length > 0)?.length > 0) {
+        dispatch(getRSSMixerData(data, block));
+      }
     }
-  }, [data?.feed, data?.feedItemNumber]);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data.feeds, data.limit]);
 
   const templateConfig = config.blocks.blocksConfig.rssBlock.templates;
 
