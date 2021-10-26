@@ -12,61 +12,76 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: Block/RssSidebar
+# defaultMessage: Feed
 msgid "Feed"
 msgstr "Feed"
 
 #: Block/RssSidebar
+# defaultMessage: Add feed
 msgid "RSSFeedAdd"
 msgstr "Aggiungi un feed"
 
 #: Block/RssSidebar
+# defaultMessage: RSS Feed
 msgid "RssFeed"
 msgstr "Feed RSS"
 
 #: Block/RssSidebar
+# defaultMessage: RSS Feed Source name
 msgid "RssFeed Source"
 msgstr "Nome della sorgente"
 
 #: Block/RssSidebar
+# defaultMessage: RSS Feed URL
 msgid "RssFeed Url"
 msgstr "URL del feed RSS"
 
 #: Block/RssSidebar
+# defaultMessage: Maximum items to show
 msgid "RssLimit"
 msgstr "Numero massimo di elementi da mostrare"
 
 #: Block/TemplateWidget
+# defaultMessage: Template
 msgid "Template"
 msgstr "Template"
 
 #: Block/Edit
+# defaultMessage: No feeds set
 msgid "feed_not_set"
 msgstr "Feed RSS non impostato"
 
 #: Block/RssSidebar
+# defaultMessage: Link more href
 msgid "linkHref"
 msgstr "Url per il link ad altro"
 
 #: Block/RssSidebar
+# defaultMessage: Link more
 msgid "linkMore"
 msgstr "Link ad altro"
 
 #: Block/RssSidebar
+# defaultMessage: Title for link more
 msgid "linkMoreTitle"
 msgstr "Titolo per il link ad altro"
 
 #: Templates/DefaultRssTemplate
+# defaultMessage: No results from RSS feed.
 msgid "rss_no_results"
 msgstr "Nessun risultato dal feed RSS"
 
 #: Templates/DefaultRssTemplate
+# defaultMessage: Read more
 msgid "rss_read_more"
 msgstr "Leggi tutto"
 
 #: Block/RssSidebar
+# defaultMessage: Set RSS feed
 msgid "setrss"
 msgstr "Imposta feed RSS"
 
 #: Block/RssSidebar
+# defaultMessage: Title
 msgid "title"
 msgstr "Titolo"
