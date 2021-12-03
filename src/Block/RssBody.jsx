@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 import Parser from 'rss-parser';
 import config from '@plone/volto/registry';
 
+const baseUrl = () => {
+  let apiPath;
+  if (config.settings.internalApiPath && __SERVER__) {
+    apiPath = config.settings.internalApiPath;
+  } else if (__DEVELOPMENT__ && config.settings.devProxyToApiPath) {
+    apiPath = config.settings.devProxyToApiPath;
+  } else {
+    apiPath = config.settings.apiPath;
+  }
+  return apiPath;
+};
+
 const RssBody = ({ data, isEditMode }) => {
   const [feedItems, setFeedItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -10,15 +22,15 @@ const RssBody = ({ data, isEditMode }) => {
     let parser = new Parser();
     setFeedItems([]);
     if (data?.feed?.length > 0) {
-      let base_url = config.settings.apiPath;
-      parser.parseURL(base_url + '/@get_rss_feed?feed=' + data.feed, function (
-        err,
-        feed,
-      ) {
-        setLoading(false);
-        if (err) throw err;
-        setFeedItems(feed.items.slice(0, data?.feedItemNumber));
-      });
+      let base_url = baseUrl();
+      parser.parseURL(
+        base_url + '/@get_rss_feed?feed=' + encodeURIComponent(data.feed),
+        function (err, feed) {
+          setLoading(false);
+          if (err) throw err;
+          setFeedItems(feed.items.slice(0, data?.feedItemNumber));
+        },
+      );
     }
   }, [data?.feed, data?.feedItemNumber]);
 
