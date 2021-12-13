@@ -1,7 +1,7 @@
 import rssSVG from '@plone/volto/icons/rss.svg';
-import RssView from './Block/View';
-import RssEdit from './Block/Edit';
-import DefaultRSSTemplate from './Templates/DefaultRssTemplate';
+import RssView from '@italia/addons/volto-rss-block/Block/View';
+import RssEdit from '@italia/addons/volto-rss-block/Block/Edit';
+import DefaultRSSTemplate from '@italia/addons/volto-rss-block/Templates/DefaultRssTemplate';
 
 export const rssBlock = {
   id: 'rssBlock',
@@ -22,7 +22,7 @@ export const rssBlock = {
   sidebarTab: 1,
 };
 
-export default config => {
+export default (config) => {
   config.blocks.blocksConfig = {
     ...config.blocks.blocksConfig,
     rssBlock,

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import RssBody from './RssBody';
+import RssBody from '@italia/addons/volto-rss-block/Block/RssBody';
 
 const View = ({ data, properties, block, path }) => {
   return (

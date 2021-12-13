@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
-import RssBody from './RssBody';
+import RssBody from '@italia/addons/volto-rss-block/Block/RssBody';
 import { SidebarPortal } from '@plone/volto/components';
-import RssSidebar from './RssSidebar';
+import RssSidebar from '@italia/addons/volto-rss-block/Block/RssSidebar';
 
 import { getBaseUrl } from '@plone/volto/helpers';
 
