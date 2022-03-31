@@ -30,6 +30,7 @@ const Edit = ({
           block={block}
           path={getBaseUrl(pathname)}
           isEditMode={true}
+          pathname={pathname}
         />
       )}
 
