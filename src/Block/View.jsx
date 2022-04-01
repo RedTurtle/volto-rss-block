@@ -6,7 +6,7 @@ import RssBody from './RssBody';
 const View = ({ data, properties, id, path }) => {
   return (
     <div className={cx('block rssBlock', data.template ?? 'default')}>
-      <RssBody data={data} properties={properties} block={id} path={path} />
+      <RssBody data={data} properties={properties} block={id} pathname={path} />
     </div>
   );
 };

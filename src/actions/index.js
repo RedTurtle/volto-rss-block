@@ -6,14 +6,14 @@ export const GET_RSS_MIXER_DATA = 'GET_RSS_MIXER_DATA';
  * @param {string} path
  * @param {Object} data
  */
-export function getRSSMixerData(data, subrequest) {
+export function getRSSMixerData(data, block, pathname = '') {
   return {
     type: GET_RSS_MIXER_DATA,
-    subrequest,
+    subrequest: block,
     request: {
-      op: 'post',
-      path: '/@rss_mixer_data',
-      data,
+      op: 'get',
+      path: pathname.replace('/edit', '') + '/@rss_mixer_data',
+      params: { block },
     },
   };
 }

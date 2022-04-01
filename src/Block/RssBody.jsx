@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import config from '@plone/volto/registry';
 import { getRSSMixerData } from 'volto-rss-block';
 
-const RssBody = ({ block, data, isEditMode }) => {
+const RssBody = ({ block, data, isEditMode, pathname }) => {
   const dispatch = useDispatch();
   const rssState = useSelector(
     (state) => state.rssMixerData?.subrequests[block],
@@ -17,7 +17,7 @@ const RssBody = ({ block, data, isEditMode }) => {
   useEffect(() => {
     if (!loading && (isEditMode || (!isEditMode && !loaded))) {
       if (data.feeds?.filter((f) => f.url?.length > 0)?.length > 0) {
-        dispatch(getRSSMixerData(data, block));
+        dispatch(getRSSMixerData(data, block, pathname));
       }
     }
 

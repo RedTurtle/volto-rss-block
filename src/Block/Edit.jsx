@@ -21,16 +21,33 @@ const Edit = ({
     <>
       {feeds?.length <= 0 ? (
         <FormattedMessage id="feed_not_set" defaultMessage="No feeds set">
-          {(message) => <p className="items-preview">{message}</p>}
+          {(message) => (
+            <div className="public-ui">
+              <div className="ui message warning">{message}</div>
+            </div>
+          )}
         </FormattedMessage>
       ) : (
-        <RssBody
-          data={data}
-          properties={properties}
-          block={block}
-          path={getBaseUrl(pathname)}
-          isEditMode={true}
-        />
+        <>
+          <FormattedMessage
+            id="RssFeed Url description"
+            defaultMessage="To see the set feed, you need to save the content."
+          >
+            {(message) => (
+              <div className="public-ui">
+                <div className="ui message warning">{message}</div>
+              </div>
+            )}
+          </FormattedMessage>
+          <RssBody
+            data={data}
+            properties={properties}
+            block={block}
+            path={getBaseUrl(pathname)}
+            isEditMode={true}
+            pathname={pathname}
+          />
+        </>
       )}
 
       <SidebarPortal selected={selected}>
