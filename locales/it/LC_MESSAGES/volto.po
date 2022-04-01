@@ -36,6 +36,12 @@ msgstr "Nome della sorgente"
 msgid "RssFeed Url"
 msgstr "URL del feed RSS"
 
+#: Block/Edit
+#: Block/RssSidebar
+# defaultMessage: To see the set feed, you need to save the content.
+msgid "RssFeed Url description"
+msgstr "Per vedere il feed impostato, devi prima salvare il contenuto."
+
 #: Block/RssSidebar
 # defaultMessage: Maximum items to show
 msgid "RssLimit"

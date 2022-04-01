@@ -36,6 +36,12 @@ msgstr ""
 msgid "RssFeed Url"
 msgstr ""
 
+#: Block/Edit
+#: Block/RssSidebar
+# defaultMessage: To see the set feed, you need to save the content.
+msgid "RssFeed Url description"
+msgstr ""
+
 #: Block/RssSidebar
 # defaultMessage: Maximum items to show
 msgid "RssLimit"

@@ -28,10 +28,15 @@ const messages = defineMessages({
     id: 'RssFeed Url',
     defaultMessage: 'RSS Feed URL',
   },
+  RssFeedUrlDescription: {
+    id: 'RssFeed Url description',
+    defaultMessage: 'To see the set feed, you need to save the content.',
+  },
   RssFeedSource: {
     id: 'RssFeed Source',
     defaultMessage: 'RSS Feed Source name',
   },
+
   setrss: {
     id: 'setrss',
     defaultMessage: 'Set RSS feed',
@@ -180,6 +185,9 @@ const RssSidebar = ({ data, block, onChangeBlock, required = false }) => {
                 <TextWidget
                   id="url"
                   title={intl.formatMessage(messages.RssFeedURL)}
+                  description={intl.formatMessage(
+                    messages.RssFeedUrlDescription,
+                  )}
                   required={true}
                   value={data.feeds[index].url || ''}
                   onChange={(name, value) => {
