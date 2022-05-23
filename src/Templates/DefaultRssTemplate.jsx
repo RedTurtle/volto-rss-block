@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useIntl, defineMessages } from 'react-intl';
-import { Card, Button, Grid } from 'semantic-ui-react';
-import moment from 'moment';
+import { Card, Button } from 'semantic-ui-react';
+import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 import './defaultRssTemplate.css';
 
 const messages = defineMessages({
@@ -13,8 +13,10 @@ const messages = defineMessages({
   },
 });
 
-const DefaultRSSTemplate = ({ items = [], data = {} }) => {
+const DefaultRSSTemplate = ({ items = [], data = {}, moment: Moment }) => {
   const intl = useIntl();
+  const moment = Moment.default;
+  moment.locale(intl.locale);
 
   return (
     <div className="default-rss-template">
@@ -42,9 +44,7 @@ const DefaultRSSTemplate = ({ items = [], data = {} }) => {
                   <div>
                     {(item.pubDate || item.date) && (
                       <span className="date">
-                        {moment(item.pubDate || item.date)
-                          .locale(intl.locale)
-                          .format('LL')}
+                        {moment(item.pubDate || item.date).format('LL')}
                       </span>
                     )}
                     <Button
@@ -85,4 +85,4 @@ DefaultRSSTemplate.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default DefaultRSSTemplate;
+export default injectLazyLibs(['moment'])(DefaultRSSTemplate);
