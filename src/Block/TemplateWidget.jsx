@@ -2,15 +2,15 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, Form } from 'semantic-ui-react';
 import { defineMessages, useIntl } from 'react-intl';
-import Select from 'react-select';
-import config from '@plone/volto/registry';
 
+import { injectLazyLibs } from '@plone/volto/helpers/Loadable/Loadable';
 import {
   Option,
   DropdownIndicator,
   selectTheme,
   customSelectStyles,
 } from '@plone/volto/components/manage/Widgets/SelectStyling';
+import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   Template: {
@@ -19,10 +19,11 @@ const messages = defineMessages({
   },
 });
 
-const TemplateWidget = ({ data, block, onChangeBlock }) => {
+const TemplateWidget = ({ data, block, onChangeBlock, reactSelect }) => {
   const intl = useIntl();
-  const templatesConfig = config.blocks.blocksConfig.rssBlock?.templates;
+  const Select = reactSelect.default;
 
+  const templatesConfig = config.blocks.blocksConfig.rssBlock?.templates;
   const template = data.template || 'default';
 
   useEffect(() => {
@@ -88,4 +89,4 @@ TemplateWidget.propTypes = {
   onChangeBlock: PropTypes.func.isRequired,
 };
 
-export default TemplateWidget;
+export default injectLazyLibs('reactSelect')(TemplateWidget);
