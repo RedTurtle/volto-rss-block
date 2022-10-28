@@ -9,14 +9,14 @@
   "homepage": "https://github.com/RedTurtle/volto-rss-block#readme",
   "license": "MIT",
   "devDependencies": {
+    "@plone/scripts": "v2.0.0",
     "release-it": "*"
   },
   "peerDependencies": {
-    "@plone/volto": ">=14.0.0"
+    "@plone/volto": ">=16.0.0-alpha.38"
   },
   "dependencies": {
-    "rss-parser": "3.7.5",
-    "@plone/scripts": "*"
+    "rss-parser": "3.7.5"
   },
   "scripts": {
     "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
