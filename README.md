@@ -12,10 +12,12 @@ See [redturtle.rssservice](https://github.com/RedTurtle/redturtle.rssservice).
 ## Usage
 
 > If you're using Volto < 12, then use v1.2.0.
+>
+> If you're using Volto < 16, then use v2.3.2.
 
 > If you're usign volto-rss-block > 2.0.0., the use redturtle.rssservice >= 0.1.1
 
-Load this addon (see https://docs.voltocms.com/addons/#configuring-a-volto-project-to-use-an-addon).
+Load this addon (see <https://docs.voltocms.com/addons/#configuring-a-volto-project-to-use-an-addon>).
 
 You can add custom templates like this:
 
