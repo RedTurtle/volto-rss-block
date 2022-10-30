@@ -9,8 +9,8 @@
   "homepage": "https://github.com/RedTurtle/volto-rss-block#readme",
   "license": "MIT",
   "devDependencies": {
-    "@plone/scripts": "v2.0.0",
-    "release-it": "*"
+    "@plone/scripts": "^2.0.0",
+    "release-it": "^14.10.1"
   },
   "peerDependencies": {
     "@plone/volto": ">=16.0.0-alpha.38"
