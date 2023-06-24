@@ -1,93 +1,102 @@
+# Translation of volto.pot to Spanish
+# Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2023.
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: Plone\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language: \n"
-"Language-Team: \n"
-"Content-Type: \n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"POT-Creation-Date: 2022-04-01T08:12:58.926Z\n"
+"PO-Revision-Date: 2023-06-24 15:45-0400\n"
+"Last-Translator: Leonardo J. Caballero G. <leonardocaballero@gmail.com>\n"
+"Language: es\n"
+"Language-Team: ES <LL@li.org>\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Preferred-Encodings: utf-8\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
+"Domain: volto\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
+"X-Generator: Poedit 3.3.1\n"
 
 #: Block/RssSidebar
 # defaultMessage: Feed
 msgid "Feed"
-msgstr ""
+msgstr "Feed"
 
 #: Block/RssSidebar
 # defaultMessage: Add feed
 msgid "RSSFeedAdd"
-msgstr ""
+msgstr "Añadir fuente"
 
 #: Block/RssSidebar
 # defaultMessage: RSS Feed
 msgid "RssFeed"
-msgstr ""
+msgstr "Feed RSS"
 
 #: Block/RssSidebar
 # defaultMessage: RSS Feed Source name
 msgid "RssFeed Source"
-msgstr ""
+msgstr "Nombre de la fuente de Feed RSS"
 
 #: Block/RssSidebar
 # defaultMessage: RSS Feed URL
 msgid "RssFeed Url"
-msgstr ""
+msgstr "URL del Feed RSS"
 
 #: Block/Edit
 #: Block/RssSidebar
 # defaultMessage: To see the set feed, you need to save the content.
 msgid "RssFeed Url description"
-msgstr ""
+msgstr "Para ver el feed establecido, debe guardar el contenido."
 
 #: Block/RssSidebar
 # defaultMessage: Maximum items to show
 msgid "RssLimit"
-msgstr ""
+msgstr "Elementos máximos para mostrar"
 
 #: Block/TemplateWidget
 # defaultMessage: Template
 msgid "Template"
-msgstr ""
+msgstr "Plantilla"
 
 #: Block/Edit
 # defaultMessage: No feeds set
 msgid "feed_not_set"
-msgstr ""
+msgstr "No hay feeds establecidos"
 
 #: Block/RssSidebar
 # defaultMessage: Link more href
 msgid "linkHref"
-msgstr ""
+msgstr "Atributo href del enlace Más"
 
 #: Block/RssSidebar
 # defaultMessage: Link more
 msgid "linkMore"
-msgstr ""
+msgstr "Enlace más"
 
 #: Block/RssSidebar
 # defaultMessage: Title for link more
 msgid "linkMoreTitle"
-msgstr ""
+msgstr "Título del enlace Más"
 
 #: Templates/DefaultRssTemplate
 # defaultMessage: No results from RSS feed.
 msgid "rss_no_results"
-msgstr ""
+msgstr "No hay resultados del feed RSS."
 
 #: Templates/DefaultRssTemplate
 # defaultMessage: Read more
 msgid "rss_read_more"
-msgstr ""
+msgstr "Leer más"
 
 #: Block/RssSidebar
 # defaultMessage: Set RSS feed
 msgid "setrss"
-msgstr ""
+msgstr "Establecer feed RSS"
 
 #: Block/RssSidebar
 # defaultMessage: Title
 msgid "title"
-msgstr ""
+msgstr "Título"
