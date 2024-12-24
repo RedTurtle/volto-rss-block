@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import RssBody from './RssBody';
-import { SidebarPortal } from '@plone/volto/components';
+import SidebarPortal from '@plone/volto/components/manage/Sidebar/SidebarPortal';
 import RssSidebar from './RssSidebar';
 
-import { getBaseUrl } from '@plone/volto/helpers';
+import { getBaseUrl } from '@plone/volto/helpers/Url/Url';
 
 const Edit = ({
   data,
